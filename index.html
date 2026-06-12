@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffd166" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="まいにちモンスター" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <title>まいにちモンスター</title>
+    <link rel="stylesheet" href="./styles.css?v=12" />
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="apple-touch-icon" href="./icon.svg" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero-panel" aria-labelledby="app-title">
+        <div class="status-bar">
+          <div>
+            <p class="eyebrow">Daily Quest</p>
+            <h1 id="app-title">まいにちモンスター</h1>
+            <p class="profile-title" id="profileTitle">女の子バージョン</p>
+          </div>
+          <button class="icon-button" id="settingsButton" type="button" aria-label="項目を編集">
+            <span aria-hidden="true">✎</span>
+          </button>
+        </div>
+
+        <div class="profile-switch" aria-label="バージョンを選ぶ">
+          <button class="profile-button" type="button" data-kid="girl" aria-pressed="true">
+            <span>女の子</span>
+            <small>6さい</small>
+          </button>
+          <button class="profile-button" type="button" data-kid="boy" aria-pressed="false">
+            <span>男の子</span>
+            <small>3さい</small>
+          </button>
+        </div>
+
+        <div class="monster-stage" aria-live="polite">
+          <div class="sparkle-field" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <div class="monster-wrap" id="monsterWrap">
+            <div class="monster-shadow"></div>
+            <div class="monster" id="monster">
+              <div class="wing wing-left"></div>
+              <div class="wing wing-right"></div>
+              <div class="tail"></div>
+              <div class="arm arm-left"></div>
+              <div class="arm arm-right"></div>
+              <div class="horn horn-left"></div>
+              <div class="horn horn-right"></div>
+              <div class="crest"></div>
+              <div class="tiara"><span></span><span></span><span></span></div>
+              <div class="bow"></div>
+              <div class="dress"></div>
+              <div class="wand"></div>
+              <div class="vehicle-cab"></div>
+              <div class="vehicle-bed"></div>
+              <div class="vehicle-light"></div>
+              <div class="scoop"></div>
+              <div class="wheel wheel-left"></div>
+              <div class="wheel wheel-right"></div>
+              <div class="body">
+                <div class="belly"></div>
+                <div class="eye eye-left"><i></i></div>
+                <div class="eye eye-right"><i></i></div>
+                <div class="cheek cheek-left"></div>
+                <div class="cheek cheek-right"></div>
+                <div class="mouth"></div>
+                <div class="tooth tooth-left"></div>
+                <div class="tooth tooth-right"></div>
+              </div>
+              <div class="foot foot-left"></div>
+              <div class="foot foot-right"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="evolution-card">
+          <div>
+            <p class="label">進化レベル</p>
+            <strong id="levelText">1 / 30</strong>
+          </div>
+          <div>
+            <p class="label">今日の達成</p>
+            <strong id="scoreText">0 / 10</strong>
+          </div>
+          <button class="primary-button" id="completeButton" type="button" disabled>進化させる</button>
+        </div>
+
+        <div class="progress-track" aria-label="30段階の進化">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+      </section>
+
+      <section class="quest-panel" aria-labelledby="quest-title">
+        <div class="quest-heading">
+          <div>
+            <p class="eyebrow">Today's Quests</p>
+            <h2 id="quest-title">きょうのチャレンジ</h2>
+            <p class="quest-owner" id="questOwner">女の子のきろく</p>
+          </div>
+          <p id="todayText"></p>
+        </div>
+
+        <div class="quest-list" id="questList"></div>
+
+        <div class="message-box" id="messageBox">
+          10こぜんぶできたら、モンスターが1だんかい進化するよ。
+        </div>
+      </section>
+    </main>
+
+    <dialog class="task-dialog" id="taskDialog">
+      <form method="dialog" class="dialog-card" id="taskForm">
+        <div class="dialog-heading">
+          <div>
+            <p class="eyebrow">Customize</p>
+            <h2>項目を編集・追加</h2>
+          </div>
+          <button class="icon-button" value="cancel" aria-label="閉じる" type="submit">×</button>
+        </div>
+        <div class="editor-list" id="editorList"></div>
+        <menu class="dialog-actions">
+          <button class="secondary-button" id="addTaskButton" type="button">項目を追加</button>
+          <button class="secondary-button" id="resetTasksButton" type="button">指定項目に戻す</button>
+          <button class="primary-button" value="save" type="submit">保存する</button>
+        </menu>
+      </form>
+    </dialog>
+
+    <div class="confetti" id="confetti" aria-hidden="true"></div>
+    <script src="./app.js?v=12"></script>
+  </body>
+</html>
